@@ -1,0 +1,5 @@
+import {
+  "ZYK-ai-nb/moon-geo" @geo,
+}
+
+pkgtype(kind: "executable")

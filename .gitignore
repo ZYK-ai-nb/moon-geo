@@ -1,0 +1,11 @@
+.DS_Store
+_build/
+target/
+target
+.mooncakes/
+.moonagent/
+work/
+deliverables/
+__pycache__/
+*.pyc
+docs/validation/logs/

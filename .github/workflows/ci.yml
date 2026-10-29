@@ -1,0 +1,40 @@
+name: MoonGeo checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install MoonBit stable
+        run: |
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash
+          echo "$HOME/.moon/bin" >> "$GITHUB_PATH"
+      - name: Record toolchain
+        run: moon version --all
+      - name: Verify independent oracle fixtures
+        run: python scripts/generate_oracle.py --check
+      - name: Check and build all backends
+        run: |
+          moon check --target all --deny-warn
+          moon build --target all --deny-warn
+      - name: Test all backends
+        run: moon test --target all --deny-warn
+      - name: Format and public interface
+        run: |
+          moon fmt --check
+          moon info
+          git diff --exit-code -- '*.mbti'
+      - name: Runnable examples
+        run: |
+          moon run cmd/main --target js
+          moon run examples/predicates --target js
+          moon run examples/regions --target js
+          moon run examples/dynamic_index --target js
