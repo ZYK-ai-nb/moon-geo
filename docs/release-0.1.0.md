@@ -3,9 +3,21 @@
 ## 当前状态
 
 - 模块身份已绑定为 `ZYK-ai-nb/moon-geo`，repository 为 `https://github.com/ZYK-ai-nb/moon-geo`。
-- Mooncakes CLI 已核验登录为 `ZYK-ai-nb`。GitHub CLI 的设备授权正在处理。
+- Mooncakes 已正式发布 `ZYK-ai-nb/moon-geo@0.1.0`，实际发布命令退出 0，服务器返回 `200 OK`。
+- 已在无 `moon.work`、无本地依赖覆盖的新消费者工程中，从注册表下载并运行三个原始 README 片段；Wasm、Wasm-GC、JS 分别 3/3 通过。
+- 注册表下载的 44 个文件与正式上传归档逐字节一致。
 - Git 提交使用 GitHub 账号名与关联的 noreply 邮箱，仅配置本仓库；不在源码中保存报名联系方式。
-- 远程仓库、注册表正式发布、CI 和外部下载验证尚待完成。本文将在取得实际结果后更新，不提前宣称成功。
+- GitHub 网页登录未转换为 GitHub CLI 授权。两次设备登录分别遇到网络超时和 EOF，本机也无可复用的 GitHub 凭据；委托人当前暂不能完成设备授权。远程仓库尚未创建，代码未推送，CI 尚未执行。
+- 报名表尚未提交。当前仍需 GitHub 公开仓库这一项，不能声称初审材料已正式提交或已经通过初审。
+
+## 注册表归档
+
+- 模块：`ZYK-ai-nb/moon-geo@0.1.0`
+- 文档入口：https://mooncakes.io/docs/ZYK-ai-nb/moon-geo
+- 上传归档 SHA256：`2e1d0636f09578889836bbb649a6f854862b93a6f61f11de563accebbcc39b4e`
+- 发布源码提交：`4bb2c86`；后续发布状态和验证记录会保留在主分支，不改写该归档。
+
+重现注册表消费者验证：`python scripts/check_registry_consumer.py --version 0.1.0`。原始执行日志保留在本地 `work/validation/`。
 
 ## 发布范围
 
@@ -13,6 +25,6 @@
 
 ## 本地验证基线
 
-绑定前已有 91 个测试在 Wasm、Wasm-GC、JS 分别通过，180 条独立 Fraction 方向符号数据通过核对；三个 README 片段在独立消费者中分别 3/3 通过。绑定后会重新检查包内容和可下载性。
+绑定前后 91 个测试均在 Wasm、Wasm-GC、JS 分别通过，180 条独立 Fraction 方向符号数据通过核对；三个 README 片段在本地依赖消费者和实际注册表消费者中都分别 3/3 通过。
 
 Windows Native 在本机缺少 MSVC／Windows SDK，未运行到功能测试。Linux Native 的结果必须以后续 CI 为准。

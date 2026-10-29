@@ -25,7 +25,7 @@ Windows 可用 `powershell -ExecutionPolicy Bypass -File scripts/check.ps1` 完�
 moon add ZYK-ai-nb/moon-geo@0.1.0
 ```
 
-在消费者的 `moon.pkg` 中使用 `import { "ZYK-ai-nb/moon-geo" @geo }`。是否已完成注册表发布，以发布记录为准。
+在消费者的 `moon.pkg` 中使用 `import { "ZYK-ai-nb/moon-geo" @geo }`。0.1.0 已完成注册表发布和独立下载验证；完整证据见发布记录。
 
 下面三个片段均为测试块；复制到只有测试的包时，导入应放在 `import { "ZYK-ai-nb/moon-geo" @geo } for "test"` 中，避免普通源码包出现未使用导入。可运行 `python scripts/check_consumer.py`，在本地独立工作区编译并执行三个原始文档片段，不需要发布或登录。
 
