@@ -2,7 +2,7 @@
 
 面向地图编辑与区域归属查询的纯 MoonBit 库。重点是可靠的拓扑判定、真正可修改的 R-tree，以及可复核的边界诊断。Apache-2.0，仅使用 `moonbitlang/core`；运行时无需 Python、C 几何库、FFI 或网络服务。
 
-当前版本 **0.1.0**，模块为 `ZYK-ai-nb/moon-geo`。发布状态与持续集成证据见 [发布记录](docs/release-0.1.0.md)。以下示例也可以直接从源码运行。
+当前已发布版本 **0.1.0**，模块为 `ZYK-ai-nb/moon-geo`。主分支可能包含发布后的测试和文档改进，不代表已发布新版本；0.1.0 归档内的旧申报草稿误写为十一月赛，以主分支十月赛草稿为准。发布状态与持续集成证据见 [发布记录](docs/release-0.1.0.md)。以下示例也可以直接从源码运行。
 
 ## 本地运行
 
@@ -107,10 +107,12 @@ moon run examples/dynamic_index --target js
 
 ## 验证与来源
 
-测试包括手算案例、四类带种子的 QuickCheck 属性、180 组独立 Python Fraction 方向符号、500 个矩形的 200 次范围查询、1,000 次混合索引操作，以及孔洞、边界和区域更新场景。生成器只用于开发：
+主分支测试包括手算案例、四类带种子的 QuickCheck 属性、180 组独立 Python Fraction 方向符号、与 Shapely/GEOS 对照的 503 对线段及 507 个多边形定位点、500 个矩形的 200 次范围查询、1,000 次混合索引操作，以及孔洞、边界和区域更新场景。GEOS 对照限于三个多边形和小整数坐标，不能证明极端浮点或全部行为正确。生成器只用于开发：
 
 ```sh
 python scripts/generate_oracle.py --check
 ```
+
+如需重新核对 GEOS 对照数据，在独立开发环境安装 `shapely==2.2.0` 后运行 `python scripts/generate_geos_oracle.py --check`；库运行不需要 Shapely、GEOS 或 Python。
 
 详细算法、复杂度、语义和限制见 [semantics](docs/semantics.md)。已有 MoonBit 几何和索引项目见 [related work](docs/related-work.md)；本项目不宣称生态首个或全球唯一。参考了 Shewchuk 的可靠谓词思路、Guttman 的 R-tree 算法和经典几何算法，未复制其他 MoonBit 项目源码，详见 [provenance](docs/provenance.md)。

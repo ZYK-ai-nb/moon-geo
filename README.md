@@ -9,6 +9,7 @@
 - [算法来源与许可证](docs/provenance.md)
 - [申报书草稿](docs/申报书草稿.md)
 - [本地验证记录](docs/validation/2026-10-29.md)
+- [最新本地验证记录](docs/validation/2026-10-30.md)
 
 模块账号：`ZYK-ai-nb/moon-geo`。代码仓库：[ZYK-ai-nb/moon-geo](https://github.com/ZYK-ai-nb/moon-geo)。
 

@@ -17,6 +17,7 @@
 - 文档入口：https://mooncakes.io/docs/ZYK-ai-nb/moon-geo
 - 上传归档 SHA256：`2e1d0636f09578889836bbb649a6f854862b93a6f61f11de563accebbcc39b4e`
 - 发布源码提交：`4bb2c86`；后续发布状态和验证记录会保留在主分支，不改写该归档。
+- 此归档中的旧版申报书误写为十一月赛；当前赛事为十月赛，以主分支 `docs/申报书草稿.md` 为准。后续主分支的 GEOS 对照测试与文档修正未包含在 0.1.0 归档中。
 
 重现注册表消费者验证：`python scripts/check_registry_consumer.py --version 0.1.0`。原始执行日志保留在本地 `work/validation/`。
 
