@@ -2,7 +2,7 @@
 
 面向地图编辑与区域归属查询的纯 MoonBit 库。重点是可靠的拓扑判定、真正可修改的 R-tree，以及可复核的边界诊断。Apache-2.0，仅使用 `moonbitlang/core`；运行时无需 Python、C 几何库、FFI 或网络服务。
 
-当前已发布版本 **0.1.0**，模块为 `ZYK-ai-nb/moon-geo`。主分支可能包含发布后的测试和文档改进，不代表已发布新版本；0.1.0 归档内的旧申报草稿误写为十一月赛，以主分支十月赛草稿为准。发布状态与持续集成证据见 [发布记录](docs/release-0.1.0.md)。以下示例也可以直接从源码运行。
+当前源码版本 **0.1.1**，模块为 `ZYK-ai-nb/moon-geo`。历史 0.1.0 归档内的旧申报草稿误写为十一月赛，本版已修正。0.1.0 的发布状态与持续集成证据见 [历史发布记录](docs/release-0.1.0.md)。以下示例可以直接从源码运行。
 
 ## 本地运行
 
@@ -22,10 +22,10 @@ Windows 可用 `powershell -ExecutionPolicy Bypass -File scripts/check.ps1` 完�
 安装命令：
 
 ```sh
-moon add ZYK-ai-nb/moon-geo@0.1.0
+moon add ZYK-ai-nb/moon-geo@0.1.1
 ```
 
-在消费者的 `moon.pkg` 中使用 `import { "ZYK-ai-nb/moon-geo" @geo }`。0.1.0 已完成注册表发布和独立下载验证；完整证据见发布记录。
+在消费者的 `moon.pkg` 中使用 `import { "ZYK-ai-nb/moon-geo" @geo }`。注册表发布后可用 `python scripts/check_registry_consumer.py --version 0.1.1` 验证独立消费者。
 
 下面三个片段均为测试块；复制到只有测试的包时，导入应放在 `import { "ZYK-ai-nb/moon-geo" @geo } for "test"` 中，避免普通源码包出现未使用导入。可运行 `python scripts/check_consumer.py`，在本地独立工作区编译并执行三个原始文档片段，不需要发布或登录。
 
