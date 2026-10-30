@@ -7,8 +7,9 @@
 - 已在无 `moon.work`、无本地依赖覆盖的新消费者工程中，从注册表下载并运行三个原始 README 片段；Wasm、Wasm-GC、JS 分别 3/3 通过。
 - 注册表下载的 44 个文件与正式上传归档逐字节一致。
 - Git 提交使用 GitHub 账号名与关联的 noreply 邮箱，仅配置本仓库；不在源码中保存报名联系方式。
-- GitHub 网页登录未转换为 GitHub CLI 授权。两次设备登录分别遇到网络超时和 EOF，本机也无可复用的 GitHub 凭据；委托人当前暂不能完成设备授权。远程仓库尚未创建，代码未推送，CI 尚未执行。
-- 报名表尚未提交。当前仍需 GitHub 公开仓库这一项，不能声称初审材料已正式提交或已经通过初审。
+- GitHub CLI 已验证为 `ZYK-ai-nb`；[公开仓库](https://github.com/ZYK-ai-nb/moon-geo)已创建，本地提交和 `v0.1.0` 标签已推送，默认分支为 `main`。
+- [GitHub Actions](https://github.com/ZYK-ai-nb/moon-geo/actions) 已触发；请以对应提交的实际执行结果为准。
+- 报名表尚未提交；不能声称初审材料已正式提交或已经通过初审。
 
 ## 注册表归档
 
