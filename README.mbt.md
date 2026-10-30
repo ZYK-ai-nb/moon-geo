@@ -75,6 +75,16 @@ test {
 moon run examples/regions --target js
 ```
 
+### 真实工作流的可运行示例
+
+假设服务区是平面方形，其中一块区域暂不提供服务：查询落在排除区的点时，包围盒会给出候选，实际区域判断会将其排除；排除区边界也按业务策略排除，但保留边界编号供检查。移除排除区并更新索引后，同一点变为内部命中；删除整个服务区后不再返回候选。该场景为自建示例，不代表真实用户案例，坐标也不是经纬度。
+
+```sh
+moon run examples/service_area --target js
+```
+
+程序包含断言，逐步检查候选、命中、边界、更新后的版本号和删除后的索引状态；持续集成也运行此示例。
+
 ## 示例 3：动态 R-tree
 
 ```mbt nocheck
@@ -113,6 +123,6 @@ moon run examples/dynamic_index --target js
 python scripts/generate_oracle.py --check
 ```
 
-如需重新核对 GEOS 对照数据，在独立开发环境安装 `shapely==2.2.0` 后运行 `python scripts/generate_geos_oracle.py --check`；库运行不需要 Shapely、GEOS 或 Python。
+如需重新核对 GEOS 对照数据，在独立开发环境安装 `shapely==2.2.0` 后运行 `python scripts/generate_geos_oracle.py --check`；CI 会安装该开发依赖并执行核对，库运行不需要 Shapely、GEOS 或 Python。
 
 详细算法、复杂度、语义和限制见 [semantics](docs/semantics.md)。已有 MoonBit 几何和索引项目见 [related work](docs/related-work.md)；本项目不宣称生态首个或全球唯一。参考了 Shewchuk 的可靠谓词思路、Guttman 的 R-tree 算法和经典几何算法，未复制其他 MoonBit 项目源码，详见 [provenance](docs/provenance.md)。

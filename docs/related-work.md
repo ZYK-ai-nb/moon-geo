@@ -12,6 +12,8 @@
 | [mourner/robust-predicates](https://github.com/mourner/robust-predicates) | README、orient2d 实现思路 | 可借鉴把数值可靠性落到算法和反例；本项目没有拷贝其 JS，也不宣称鲁棒谓词算法为原创。 |
 | [mourner/rbush](https://github.com/mourner/rbush) | README、动态索引 API | 可借鉴小接口和明确查询语义；本项目不宣称实现其批量装载或性能水平。 |
 
+一个可复核的设计取舍：上述 MoonGeoKit 固定版本的 [GridSpatialIndex](https://github.com/cn-xjr/moongeokit/blob/0300c9cd7600c255011ddae96c9f7d929679e18a/grid_index.mbt) 使用预设 world，与 world 完全不相交的包围盒不能由该网格索引插入或更新。MoonGeo 的 R-tree 不要求预先设置全局范围，在坐标契约内可直接插入远处的区域；`moon run examples/service_area --target js` 包含该步骤。这只比较 MoonGeoKit 的网格索引，不能推广到其其他索引，也不是性能优劣结论。
+
 ## 可核验的贡献
 
 1. 用 core/bigint 对真实输入 Double 求精确方向符号；筛选不确定时执行实质计算，不返回“足够接近所以共线”。180 条独立 Fraction 符号数据用于跨后端核对。

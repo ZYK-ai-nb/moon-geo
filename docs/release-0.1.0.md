@@ -9,7 +9,7 @@
 - Git 提交使用 GitHub 账号名与关联的 noreply 邮箱，仅配置本仓库；不在源码中保存报名联系方式。
 - GitHub CLI 已验证为 `ZYK-ai-nb`；[公开仓库](https://github.com/ZYK-ai-nb/moon-geo)已创建，本地提交和 `v0.1.0` 标签已推送，默认分支为 `main`。
 - [GitHub Actions](https://github.com/ZYK-ai-nb/moon-geo/actions) 已触发；请以对应提交的实际执行结果为准。
-- 报名表尚未提交；不能声称初审材料已正式提交或已经通过初审。
+- 本记录编写时报名表尚未提交；当前报名状态以赛事系统为准，不能据此声称已经提交或通过初审。
 
 ## 注册表归档
 
