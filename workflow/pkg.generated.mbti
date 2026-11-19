@@ -1,0 +1,19 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ZYK-ai-nb/moon-geo/workflow"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn run(String) -> String
+
+// Errors
+type RequestError derive(@debug.Debug)
+pub fn RequestError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+
+// Type aliases
+
+// Traits

@@ -166,6 +166,7 @@ pub fn RegionIndex::new(capacity? : Int32) -> Self raise GeoError
 pub fn RegionIndex::query_point(Self, Point, include_boundary? : Bool, rule? : FillRule) -> RegionQueryReport
 pub fn RegionIndex::remove(Self, Int32) -> Bool
 pub fn RegionIndex::replace(Self, Int32, MultiPolygon) -> Bool raise GeoError
+pub fn RegionIndex::revision(Self) -> Int32
 pub fn RegionIndex::stats(Self) -> TreeStats
 pub fn RegionIndex::validate(Self) -> Array[String]
 

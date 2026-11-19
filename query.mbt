@@ -87,6 +87,12 @@ pub fn RegionIndex::length(self : RegionIndex) -> Int32 {
 }
 
 ///|
+/// The version changes only after a successful insert, replacement or removal.
+pub fn RegionIndex::revision(self : RegionIndex) -> Int32 {
+  self.revision
+}
+
+///|
 pub fn RegionIndex::stats(self : RegionIndex) -> TreeStats {
   self.tree.stats()
 }

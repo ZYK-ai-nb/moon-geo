@@ -2,6 +2,16 @@
 
 纯 MoonBit 的鲁棒二维空间查询库：精确方向判定、动态 R-tree、带边界诊断的区域查询。
 
+## 十一月本地开发
+
+在已发布 `0.1.1` 基础上，新增受限 GeoJSON 导入与文件查询工作流。当前改动保存在本地开发分支，发布包不包含它们。实施方案、复现命令与限制见 [本地实施方案](docs/十一月本地实施方案.md)。
+
+```sh
+node scripts/query_geojson.mjs testdata/geojson-demo.json work/geojson-result.json
+```
+
+Node.js 仅负责文件读写和构建，JSON 解析、几何、索引与更新逻辑由 MoonBit 执行。首次运行需要已安装 MoonBit 和 Node.js。
+
 ## 快速体验
 
 安装 MoonBit 后，在仓库根目录运行：

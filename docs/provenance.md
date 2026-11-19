@@ -2,6 +2,8 @@
 
 本工程采用根目录 Apache-2.0 LICENSE。几何与索引代码为本次工作中编写；交接工程原来只有 MoonBit 模板、许可证、账号绑定脚本和 Array 探针。本次使用 AI 辅助设计、实现和检查，维护者仍需理解算法与验证记录。
 
+十一月新增 `testdata/natural-earth-request.json` 与 `geojson-demo.json` 使用 Natural Earth 公有领域数据中的 South Africa、Lesotho 几何。固定源提交、原文件和派生文件 SHA-256 见 `testdata/natural-earth-source.json`，许可见 https://www.naturalearthdata.com/about/terms-of-use/ 。提取时保留几何，添加整数 ID、查询点与人为更新操作。这些修改步骤为测试场景，不表示真实行政边界变化。小比例尺数据的验证结果也不表示测绘精度。
+
 | 来源 | 本次参考范围 | 与源码的关系 |
 |---|---|---|
 | [Shewchuk, Adaptive Precision Floating-Point Arithmetic and Fast Robust Geometric Predicates](https://www.cs.cmu.edu/~quake/robust.html) | 浮点方向判定的误差与筛选／精确回退思路 | 不是其 C 或 robust-predicates JS 的逐行移植；精确回退独立使用 core/bigint 的二进制有理数表示 |

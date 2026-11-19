@@ -1,0 +1,5 @@
+import {
+  "ZYK-ai-nb/moon-geo" @geo,
+  "moonbitlang/core/json",
+  "moonbitlang/core/debug",
+}

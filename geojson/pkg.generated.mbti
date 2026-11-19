@@ -1,0 +1,24 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ZYK-ai-nb/moon-geo/geojson"
+
+import {
+  "ZYK-ai-nb/moon-geo",
+  "moonbitlang/core/debug",
+}
+
+// Values
+pub fn build_index(String, capacity? : Int32) -> @moon-geo.RegionIndex raise GeoJsonError
+
+pub fn parse_feature_collection(String) -> Array[(Int32, @moon-geo.MultiPolygon)] raise GeoJsonError
+
+// Errors
+pub suberror GeoJsonError {
+  InvalidGeoJson(String)
+} derive(@debug.Debug)
+pub fn GeoJsonError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+
+// Type aliases
+
+// Traits
