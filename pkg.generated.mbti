@@ -23,6 +23,7 @@ pub fn segment_relation(Segment, Segment) -> SegmentRelation
 pub fn signed_area(Array[Point]) -> Double
 
 // Errors
+#derive(@debug.Debug)
 pub suberror GeoError {
   InvalidCoordinate
   InvalidBounds
@@ -30,19 +31,21 @@ pub suberror GeoError {
   InvalidPolygon(String)
   InvalidCapacity
   DuplicateId(Int32)
-} derive(@debug.Debug)
+}
 pub fn GeoError::to_repr(Self) -> @debug.Repr
 
 // Types and methods
+#derive(Eq, @debug.Debug)
 pub(all) enum ArithmeticPath {
   Filtered
   ExactDyadic
-} derive(Eq, @debug.Debug)
+}
 pub fn ArithmeticPath::equal(Self, Self) -> Bool
 pub fn ArithmeticPath::not_equal(Self, Self) -> Bool
 pub fn ArithmeticPath::to_repr(Self) -> @debug.Repr
 
-type BBox derive(Eq, @debug.Debug)
+#derive(Eq, @debug.Debug)
+type BBox
 pub fn BBox::area(Self) -> Double
 pub fn BBox::contains(Self, Point) -> Bool
 pub fn BBox::equal(Self, Self) -> Bool
@@ -56,65 +59,73 @@ pub fn BBox::not_equal(Self, Self) -> Bool
 pub fn BBox::to_repr(Self) -> @debug.Repr
 pub fn BBox::union(Self, Self) -> Self
 
+#derive(Eq, @debug.Debug)
 pub(all) struct BoundaryWitness {
   ring : Int32
   edge : Int32
   segment : Segment
-} derive(Eq, @debug.Debug)
+}
 pub fn BoundaryWitness::equal(Self, Self) -> Bool
 pub fn BoundaryWitness::not_equal(Self, Self) -> Bool
 pub fn BoundaryWitness::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) enum FillRule {
   EvenOdd
   NonZero
-} derive(Eq, @debug.Debug)
+}
 pub fn FillRule::equal(Self, Self) -> Bool
 pub fn FillRule::not_equal(Self, Self) -> Bool
 pub fn FillRule::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) enum Location {
   Outside
   OnBoundary
   Inside
-} derive(Eq, @debug.Debug)
+}
 pub fn Location::equal(Self, Self) -> Bool
 pub fn Location::not_equal(Self, Self) -> Bool
 pub fn Location::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct LocationReport {
   location : Location
   boundary : BoundaryWitness?
-} derive(Eq, @debug.Debug)
+}
 pub fn LocationReport::equal(Self, Self) -> Bool
 pub fn LocationReport::not_equal(Self, Self) -> Bool
 pub fn LocationReport::to_repr(Self) -> @debug.Repr
 
-type MultiPolygon derive(@debug.Debug)
+#derive(@debug.Debug)
+type MultiPolygon
 pub fn MultiPolygon::bounds(Self) -> BBox?
 pub fn MultiPolygon::from_polygon(Polygon) -> Self
 pub fn MultiPolygon::new(Array[Polygon]) -> Self raise GeoError
 pub fn MultiPolygon::polygons(Self) -> Array[Polygon]
 pub fn MultiPolygon::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) enum Orientation {
   CW
   Collinear
   CCW
-} derive(Eq, @debug.Debug)
+}
 pub fn Orientation::equal(Self, Self) -> Bool
 pub fn Orientation::not_equal(Self, Self) -> Bool
 pub fn Orientation::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct OrientationReport {
   orientation : Orientation
   arithmetic : ArithmeticPath
-} derive(Eq, @debug.Debug)
+}
 pub fn OrientationReport::equal(Self, Self) -> Bool
 pub fn OrientationReport::not_equal(Self, Self) -> Bool
 pub fn OrientationReport::to_repr(Self) -> @debug.Repr
 
-type Point derive(Eq, @debug.Debug)
+#derive(Eq, @debug.Debug)
+type Point
 pub fn Point::equal(Self, Self) -> Bool
 pub fn Point::new(Double, Double) -> Self raise GeoError
 pub fn Point::not_equal(Self, Self) -> Bool
@@ -122,7 +133,8 @@ pub fn Point::to_repr(Self) -> @debug.Repr
 pub fn Point::x(Self) -> Double
 pub fn Point::y(Self) -> Double
 
-type Polygon derive(@debug.Debug)
+#derive(@debug.Debug)
+type Polygon
 pub fn Polygon::area(Self) -> Double
 pub fn Polygon::bounds(Self) -> BBox
 pub fn Polygon::centroid(Self) -> Point?
@@ -141,19 +153,21 @@ pub fn RTree::remove(Self, Int32) -> Bool
 pub fn RTree::stats(Self) -> TreeStats
 pub fn RTree::validate(Self) -> Array[String]
 
+#derive(@debug.Debug)
 pub(all) struct RangeReport {
   entries : Array[SpatialEntry]
   nodes_visited : Int32
   entries_tested : Int32
-} derive(@debug.Debug)
+}
 pub fn RangeReport::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct RegionDecision {
   id : Int32
   location : Location
   component : Int32?
   boundary : BoundaryWitness?
-} derive(Eq, @debug.Debug)
+}
 pub fn RegionDecision::equal(Self, Self) -> Bool
 pub fn RegionDecision::not_equal(Self, Self) -> Bool
 pub fn RegionDecision::to_repr(Self) -> @debug.Repr
@@ -170,6 +184,7 @@ pub fn RegionIndex::revision(Self) -> Int32
 pub fn RegionIndex::stats(Self) -> TreeStats
 pub fn RegionIndex::validate(Self) -> Array[String]
 
+#derive(@debug.Debug)
 pub(all) struct RegionQueryReport {
   revision : Int32
   candidates : Int32
@@ -177,10 +192,11 @@ pub(all) struct RegionQueryReport {
   entries_tested : Int32
   hits : Array[Int32]
   decisions : Array[RegionDecision]
-} derive(@debug.Debug)
+}
 pub fn RegionQueryReport::to_repr(Self) -> @debug.Repr
 
-type Segment derive(Eq, @debug.Debug)
+#derive(Eq, @debug.Debug)
+type Segment
 pub fn Segment::end(Self) -> Point
 pub fn Segment::equal(Self, Self) -> Bool
 pub fn Segment::new(Point, Point) -> Self
@@ -188,24 +204,27 @@ pub fn Segment::not_equal(Self, Self) -> Bool
 pub fn Segment::start(Self) -> Point
 pub fn Segment::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) enum SegmentRelation {
   Disjoint
   Touch(Point)
   Cross
   Overlap(Segment)
-} derive(Eq, @debug.Debug)
+}
 pub fn SegmentRelation::equal(Self, Self) -> Bool
 pub fn SegmentRelation::not_equal(Self, Self) -> Bool
 pub fn SegmentRelation::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct SpatialEntry {
   id : Int32
   bounds : BBox
-} derive(Eq, @debug.Debug)
+}
 pub fn SpatialEntry::equal(Self, Self) -> Bool
 pub fn SpatialEntry::not_equal(Self, Self) -> Bool
 pub fn SpatialEntry::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub(all) struct TreeStats {
   entries : Int32
   height : Int32
@@ -213,7 +232,7 @@ pub(all) struct TreeStats {
   leaves : Int32
   splits : Int32
   condenses : Int32
-} derive(Eq, @debug.Debug)
+}
 pub fn TreeStats::equal(Self, Self) -> Bool
 pub fn TreeStats::not_equal(Self, Self) -> Bool
 pub fn TreeStats::to_repr(Self) -> @debug.Repr

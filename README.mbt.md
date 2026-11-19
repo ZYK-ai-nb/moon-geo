@@ -1,6 +1,6 @@
 # MoonGeo
 
-本地十一月改进已加入受限 GeoJSON 子包和文件工作流。当前为发布后的源码改动，安装 `0.1.1` 不包含新接口。复现和限制见 [实施方案](docs/十一月本地实施方案.md)。
+十一月源码改进已加入受限 GeoJSON 子包和文件工作流。安装 `0.1.1` 不包含新接口。当前源码需要 MoonBit 0.10.21 或更新版本，复现和限制见 [实施方案](docs/十一月本地实施方案.md)，采用取舍见 [同任务实测](docs/package-comparison.md)。
 
 面向地图编辑与区域归属查询的纯 MoonBit 库。重点是可靠的拓扑判定、真正可修改的 R-tree，以及可复核的边界诊断。Apache-2.0，仅使用 `moonbitlang/core`；运行时无需 Python、C 几何库、FFI 或网络服务。
 
@@ -19,7 +19,7 @@ moon test --target js --deny-warn
 moon run cmd/main --target js
 ```
 
-Windows 可用 `powershell -ExecutionPolicy Bypass -File scripts/check.ps1` 完整复现本地检查；日志写入 `work/validation/`。Native 运行另需本机 C 编译工具链，安装好后可加 `-IncludeNative`。本机实测编译器为 `moonc v0.10.17+093cb8f9c`，Moon CLI 为 `0.1.20261021`；CI 使用官方 stable 工具链，执行结果见发布记录。
+Windows 可用 `powershell -ExecutionPolicy Bypass -File scripts/check.ps1` 复现核心本地检查，新增文件工作流和对照命令见实施方案；日志写入 `work/validation/`。Native 运行另需本机 C 编译工具链，安装好后可加 `-IncludeNative`。当前源码验证使用 `moonc v0.10.21`、Moon CLI `0.1.20261117`；十月历史工具链和结果保留在原验证记录中。CI 使用官方 stable 工具链。
 
 安装命令：
 

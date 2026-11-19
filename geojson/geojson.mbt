@@ -1,7 +1,8 @@
 ///|
+#derive(Debug)
 pub suberror GeoJsonError {
   InvalidGeoJson(String)
-} derive(Debug)
+}
 
 ///|
 pub extend GeoJsonError with @debug.Debug::{to_repr}

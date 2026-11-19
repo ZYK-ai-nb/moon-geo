@@ -4,7 +4,7 @@
 
 当前还有 [tc-adventureking/rbush 0.1.0](https://mooncakes.io/docs/tc-adventureking/rbush%400.1.0) 的动态 R-tree，以及 [t-ujiie-g/robust 0.1.0](https://mooncakes.io/docs/t-ujiie-g/robust%400.1.0) 的方向判定实现。本次只核查其公开接口和说明，未执行完整竞品对拍。不能把动态索引或鲁棒谓词单项当作本项目独有，也不能据其当前存在倒推十月的评审原因。
 
-十一月本地新增聚焦外部 GeoJSON 文件、可复用调用接口、修改失败后的状态语义与真实公开几何对照。GeoJSON 支持本身也不是原创算法或独特性证明，采用价值需结合明确任务核验。
+十一月新增聚焦外部 GeoJSON 文件、可复用调用接口、修改失败后的状态语义与真实公开几何对照。GeoJSON 支持本身也不是原创算法或独特性证明，采用价值需结合明确任务核验。随后已执行 MoonGeoKit 与 rbush 的固定版本同任务 API 比较，输入、结果和范围见 [同任务实测](package-comparison.md)。
 
 ## 十月固定版本抽查记录
 

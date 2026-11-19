@@ -12,9 +12,10 @@ pub fn build_index(String, capacity? : Int32) -> @moon-geo.RegionIndex raise Geo
 pub fn parse_feature_collection(String) -> Array[(Int32, @moon-geo.MultiPolygon)] raise GeoJsonError
 
 // Errors
+#derive(@debug.Debug)
 pub suberror GeoJsonError {
   InvalidGeoJson(String)
-} derive(@debug.Debug)
+}
 pub fn GeoJsonError::to_repr(Self) -> @debug.Repr
 
 // Types and methods

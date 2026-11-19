@@ -1,8 +1,9 @@
 ///|
+#derive(Debug, Eq)
 pub(all) struct SpatialEntry {
   id : Int32
   bounds : BBox
-} derive(Debug, Eq)
+}
 
 ///|
 priv struct RNode {
@@ -23,6 +24,7 @@ struct RTree {
 }
 
 ///|
+#derive(Debug, Eq)
 pub(all) struct TreeStats {
   entries : Int32
   height : Int32
@@ -30,14 +32,15 @@ pub(all) struct TreeStats {
   leaves : Int32
   splits : Int32
   condenses : Int32
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug)
 pub(all) struct RangeReport {
   entries : Array[SpatialEntry]
   nodes_visited : Int32
   entries_tested : Int32
-} derive(Debug)
+}
 
 ///|
 pub fn RTree::new(capacity~ : Int32 = 8) -> RTree raise GeoError {

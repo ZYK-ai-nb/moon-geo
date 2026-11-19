@@ -27,6 +27,8 @@ jobs:
           python scripts/generate_geos_oracle.py --check
           python scripts/check_geojson_workflow.py
           python scripts/check_grid_workflow.py
+      - name: Fixed-version package comparison
+        run: python scripts/compare_packages.py
       - name: Check and build all backends
         run: |
           moon check --target all --deny-warn

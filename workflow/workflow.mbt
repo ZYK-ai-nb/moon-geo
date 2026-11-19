@@ -1,7 +1,8 @@
 ///|
+#derive(Debug)
 suberror RequestError {
   InvalidRequest(String)
-} derive(Debug)
+}
 
 ///|
 pub extend RequestError with @debug.Debug::{to_repr}

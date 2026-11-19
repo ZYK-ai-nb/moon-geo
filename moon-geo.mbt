@@ -1,6 +1,7 @@
 ///|
 /// Validated planar coordinates use caller-chosen units, not longitude/latitude.
 /// The coordinate limit keeps squared distances and bounding-box areas finite.
+#derive(Debug)
 pub suberror GeoError {
   InvalidCoordinate
   InvalidBounds
@@ -8,13 +9,14 @@ pub suberror GeoError {
   InvalidPolygon(String)
   InvalidCapacity
   DuplicateId(Int32)
-} derive(Debug)
+}
 
 ///|
+#derive(Debug, Eq)
 struct Point {
   x : Double
   y : Double
-} derive(Debug, Eq)
+}
 
 ///|
 pub fn Point::new(x : Double, y : Double) -> Point raise GeoError {
@@ -35,10 +37,11 @@ pub fn Point::y(self : Point) -> Double {
 }
 
 ///|
+#derive(Debug, Eq)
 struct Segment {
   start : Point
   end : Point
-} derive(Debug, Eq)
+}
 
 ///|
 pub fn Segment::new(start : Point, end : Point) -> Segment {
@@ -56,12 +59,13 @@ pub fn Segment::end(self : Segment) -> Point {
 }
 
 ///|
+#derive(Debug, Eq)
 struct BBox {
   min_x : Double
   min_y : Double
   max_x : Double
   max_y : Double
-} derive(Debug, Eq)
+}
 
 ///|
 pub fn BBox::new(
@@ -145,12 +149,13 @@ fn points_bounds(points : Array[Point]) -> BBox {
 }
 
 ///|
+#derive(Debug, Eq)
 pub(all) enum SegmentRelation {
   Disjoint
   Touch(Point)
   Cross
   Overlap(Segment)
-} derive(Debug, Eq)
+}
 
 ///|
 pub fn point_on_segment(p : Point, segment : Segment) -> Bool {

@@ -9,7 +9,8 @@ import {
 pub fn run(String) -> String
 
 // Errors
-type RequestError derive(@debug.Debug)
+#derive(@debug.Debug)
+type RequestError
 pub fn RequestError::to_repr(Self) -> @debug.Repr
 
 // Types and methods

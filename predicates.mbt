@@ -1,21 +1,24 @@
 ///|
+#derive(Debug, Eq)
 pub(all) enum Orientation {
   CW
   Collinear
   CCW
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug, Eq)
 pub(all) enum ArithmeticPath {
   Filtered
   ExactDyadic
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug, Eq)
 pub(all) struct OrientationReport {
   orientation : Orientation
   arithmetic : ArithmeticPath
-} derive(Debug, Eq)
+}
 
 ///|
 fn sign_orientation(sign : Int32) -> Orientation {

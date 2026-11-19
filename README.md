@@ -2,9 +2,9 @@
 
 纯 MoonBit 的鲁棒二维空间查询库：精确方向判定、动态 R-tree、带边界诊断的区域查询。
 
-## 十一月本地开发
+## 十一月新增
 
-在已发布 `0.1.1` 基础上，新增受限 GeoJSON 导入与文件查询工作流。当前改动保存在本地开发分支，发布包不包含它们。实施方案、复现命令与限制见 [本地实施方案](docs/十一月本地实施方案.md)。
+在已发布 `0.1.1` 基础上，当前源码新增受限 GeoJSON 导入与文件查询工作流。安装旧发布包不包含这些接口，请从源码运行。当前源码需要 MoonBit 0.10.21 或更新版本。实施方案、复现命令与限制见 [实施方案](docs/十一月本地实施方案.md)，采用取舍见 [同任务实测](docs/package-comparison.md)。
 
 ```sh
 node scripts/query_geojson.mjs testdata/geojson-demo.json work/geojson-result.json
@@ -34,10 +34,13 @@ revision=4 distant region: hits=[102]; no fixed world extent
 
 - [功能边界与算法口径](docs/semantics.md)
 - [同类调研与差异](docs/related-work.md)
+- [生态重合与独立贡献说明](docs/independent-contribution.md)
+- [固定版本同任务实测](docs/package-comparison.md)
 - [算法来源与许可证](docs/provenance.md)
-- [申报书草稿](docs/申报书草稿.md)
+- [十一月申报书](docs/申报书-十一月本地草稿.md)
+- [十月申报历史](docs/申报书草稿.md)
 - [本地验证记录](docs/validation/2026-10-29.md)
-- [最新本地验证记录](docs/validation/2026-10-30.md)
+- [十一月验证记录](docs/validation/2026-11-19.md)
 
 模块账号：`ZYK-ai-nb/moon-geo`。代码仓库：[ZYK-ai-nb/moon-geo](https://github.com/ZYK-ai-nb/moon-geo)。
 

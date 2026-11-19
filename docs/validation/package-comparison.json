@@ -1,0 +1,36 @@
+{
+  "snapshots": {
+    "kit": [
+      "cn-xjr/moongeokit",
+      "0300c9cd7600c255011ddae96c9f7d929679e18a"
+    ],
+    "rbush": [
+      "tc-adventureking/moon-rbush",
+      "ed1ed14457b4b1965c5666b819d49a1f1c5acabb"
+    ],
+    "geometry": [
+      "walkzzz/moon-geometry",
+      "2b59b8b953ecf8764ef6009dc2f7697f2eec539a"
+    ]
+  },
+  "target": "js",
+  "toolchain": [
+    "moon 0.1.20261117 (eb64713 2026-11-17)",
+    "moonc v0.10.21+06da1ed44 (2026-11-16)",
+    "moonrun 0.1.20261117 (eb64713 2026-11-17)"
+  ],
+  "observed": {
+    "grid_queries_matched": 256,
+    "delete_then_query_matched": true,
+    "hole_workflow_matched": true,
+    "moon_geometry_hole_queries_matched": 3,
+    "moon_geometry_geojson_polygon_parsed": true,
+    "geokit_direction": 0,
+    "moongeo_direction": -1,
+    "far_insert_geokit_fixed_grid": false,
+    "far_insert_geokit_linear": true,
+    "far_insert_moongeo": true,
+    "far_insert_rbush": true
+  },
+  "scope": "API-level shared inputs. MoonGeoKit hole handling uses application glue. RBush is tested for index tasks. moon-geometry is tested for polygon GeoJSON parsing and three hole-aware membership queries. No timing or whole-project ranking."
+}

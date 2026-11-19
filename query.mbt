@@ -1,12 +1,14 @@
 ///|
+#derive(Debug, Eq)
 pub(all) struct RegionDecision {
   id : Int32
   location : Location
   component : Int32?
   boundary : BoundaryWitness?
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug)
 pub(all) struct RegionQueryReport {
   revision : Int32
   candidates : Int32
@@ -14,7 +16,7 @@ pub(all) struct RegionQueryReport {
   entries_tested : Int32
   hits : Array[Int32]
   decisions : Array[RegionDecision]
-} derive(Debug)
+}
 
 ///|
 struct RegionIndex {

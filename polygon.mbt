@@ -1,37 +1,42 @@
 ///|
+#derive(Debug, Eq)
 pub(all) enum Location {
   Outside
   OnBoundary
   Inside
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug, Eq)
 pub(all) enum FillRule {
   EvenOdd
   NonZero
-} derive(Debug, Eq)
+}
 
 ///|
 /// Ring 0 is the shell; ring 1..n are holes. Edge indices refer to the
 /// normalized, unclosed ring returned by Polygon::shell/holes.
+#derive(Debug, Eq)
 pub(all) struct BoundaryWitness {
   ring : Int32
   edge : Int32
   segment : Segment
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug, Eq)
 pub(all) struct LocationReport {
   location : Location
   boundary : BoundaryWitness?
-} derive(Debug, Eq)
+}
 
 ///|
+#derive(Debug)
 struct Polygon {
   shell : Array[Point]
   holes : Array[Array[Point]]
   bounds : BBox
-} derive(Debug)
+}
 
 ///|
 fn edge_at(ring : Array[Point], index : Int32) -> Segment {
@@ -279,9 +284,10 @@ pub fn Polygon::centroid(self : Polygon) -> Point? {
 }
 
 ///|
+#derive(Debug)
 struct MultiPolygon {
   polygons : Array[Polygon]
-} derive(Debug)
+}
 
 ///|
 /// Filled components must be strictly separated; touching or overlapping filled
