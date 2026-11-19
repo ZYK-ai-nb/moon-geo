@@ -7,6 +7,7 @@ from pathlib import Path
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -55,7 +56,8 @@ def main():
     consumer.mkdir()
     (workspace / "moon.work").write_text('members = ["geo", "kit", "rbush", "geometry", "consumer"]\n', encoding="utf-8")
     # Local workspaces select the fixed snapshots, preserving upstream module names.
-    (consumer / "moon.mod").write_text('name = "test/moongeo-comparison"\nimport { "ZYK-ai-nb/moon-geo@0.1.1", "cn-xjr/moongeokit@0.3.0", "tc-adventureking/rbush@0.1.0", "walkzzz/moon-geometry@0.252.0" }\n', encoding="utf-8")
+    version = re.search(r'^version\s*=\s*"([^"]+)"', (ROOT / "moon.mod").read_text(encoding="utf-8"), re.M).group(1)
+    (consumer / "moon.mod").write_text(f'name = "test/moongeo-comparison"\nimport {{ "ZYK-ai-nb/moon-geo@{version}", "cn-xjr/moongeokit@0.3.0", "tc-adventureking/rbush@0.1.0", "walkzzz/moon-geometry@0.252.0" }}\n', encoding="utf-8")
     (consumer / "moon.pkg").write_text('import { "ZYK-ai-nb/moon-geo" @geo, "cn-xjr/moongeokit" @kit, "tc-adventureking/rbush" @rb, "walkzzz/moon-geometry/base/core" @mgcore, "walkzzz/moon-geometry/geometry/polygon_holes" @mgholes, "walkzzz/moon-geometry/io/geojson_io" @mgjson }\npkgtype(kind: "executable")\n', encoding="utf-8")
     program = (ROOT / "testdata/comparison/main.mbt").read_text(encoding="utf-8")
     (consumer / "main.mbt").write_text(program, encoding="utf-8")

@@ -4,7 +4,7 @@
 
 ## 十一月新增
 
-在已发布 `0.1.1` 基础上，当前源码新增受限 GeoJSON 导入与文件查询工作流。安装旧发布包不包含这些接口，请从源码运行。当前源码需要 MoonBit 0.10.21 或更新版本。实施方案、复现命令与限制见 [实施方案](docs/十一月本地实施方案.md)，采用取舍见 [同任务实测](docs/package-comparison.md)。
+在十月 `0.1.1` 基础上，`0.2.0` 新增受限 GeoJSON 导入与文件查询工作流。当前版本需要 MoonBit 0.10.21 或更新版本。实施方案、复现命令与限制见 [实施方案](docs/十一月本地实施方案.md)，采用取舍见 [同任务实测](docs/package-comparison.md)。
 
 ```sh
 node scripts/query_geojson.mjs testdata/geojson-demo.json work/geojson-result.json
