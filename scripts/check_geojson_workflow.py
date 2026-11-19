@@ -53,16 +53,16 @@ def fetch():
         {"op": "insert", "regions": collection([features[1]])},
         {"op": "query", "point": hole_point},
     ]
-    FIXTURE.write_text(json.dumps({"regions": collection(features), "operations": operations}, indent=2) + "\n", encoding="utf-8")
+    FIXTURE.write_text(json.dumps({"regions": collection(features), "operations": operations}, indent=2) + "\n", encoding="utf-8", newline="\n")
     demo_path = ROOT / "testdata/geojson-demo.json"
     demo = {"regions": collection(features), "operations": [operations[400 + 4 + i] for i in (0, 3, 4, 5, 6, 7, 8)]}
-    demo_path.write_text(json.dumps(demo, indent=2) + "\n", encoding="utf-8")
+    demo_path.write_text(json.dumps(demo, indent=2) + "\n", encoding="utf-8", newline="\n")
     manifest = {"source": URL, "commit": REVISION, "source_sha256": hashlib.sha256(data).hexdigest(),
                 "fixture_sha256": hashlib.sha256(FIXTURE.read_bytes()).hexdigest(),
                 "demo_sha256": hashlib.sha256(demo_path.read_bytes()).hexdigest(),
                 "license": "Public domain", "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
                 "changes": "Retained South Africa and Lesotho geometry. Assigned numeric IDs. Generated probes and artificial update operations.", "seed": 20261119}
-    (ROOT / "testdata/natural-earth-source.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "testdata/natural-earth-source.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     print("Public-domain source fixture generated.")
 
 
