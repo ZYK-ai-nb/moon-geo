@@ -38,6 +38,7 @@ revision=4 distant region: hits=[102]; no fixed world extent
 - [固定版本同任务实测](docs/package-comparison.md)
 - [算法来源与许可证](docs/provenance.md)
 - [十一月申报书](docs/申报书-十一月本地草稿.md)
+- [申报补充材料：任务、状态契约与贡献范围](docs/submission-evidence.md)
 - [十月申报历史](docs/申报书草稿.md)
 - [本地验证记录](docs/validation/2026-10-29.md)
 - [十一月验证记录](docs/validation/2026-11-19.md)
