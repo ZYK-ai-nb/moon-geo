@@ -44,4 +44,4 @@ revision=4 distant region: hits=[102]; no fixed world extent
 
 模块账号：`ZYK-ai-nb/moon-geo`。代码仓库：[ZYK-ai-nb/moon-geo](https://github.com/ZYK-ai-nb/moon-geo)。
 
-发布和持续集成进度见 [0.1.1 发布记录](docs/release-0.1.1.md)及 [0.1.0 历史记录](docs/release-0.1.0.md)。
+当前版本已发布至 Mooncakes，下载验证与持续集成结果见 [0.2.0 发布记录](docs/release-0.2.0.md)。历史版本见 [0.1.1](docs/release-0.1.1.md) 和 [0.1.0](docs/release-0.1.0.md)。

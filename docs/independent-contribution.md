@@ -20,7 +20,7 @@ GeoJSON、动态 R-tree、孔洞与鲁棒谓词均不作为 MoonGeo 独有能力
 
 1. `geojson.parse_feature_collection`、`build_index` 校验集合、ID 和拓扑，重算 bbox。整个集合通过后才建立新索引。
 2. `workflow.run` 维护几何、区域目录和索引的一致性。单次修改先校验，失败时该次修改前的结果与 revision 保持不变。
-3. hits 与逐候选三态 decisions 同时返回。边界开关只改变命中，边界环和边编号仍可核查，成功修改才改变版本。
+3. 新增 `workflow` 输出统一返回 hits、逐候选三态 decisions 和版本，复用十月已有的边界诊断能力。边界开关只改变命中，边界环和边编号仍可核查，成功修改才改变版本。
 4. Node 仅提供文件入口。MoonBit 完成解析、几何、索引与修改，公开数据、错误操作后的继续查询和 Shapely 独立对照验证整条入口。
 
 ## 采用理由和限制
